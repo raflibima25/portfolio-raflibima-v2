@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   },
   description:
     "My personal website version 5, created with Next.js, Tailwind CSS, and Shadcn Ui.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: "My Personal Website - IG: @raflibp_",
     description:

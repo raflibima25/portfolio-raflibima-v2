@@ -3,6 +3,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { User } from "lucide-react";
 import { Marquee } from "./magicui/marquee";
 import HeadSection from "./head-section";
+import Card3D from "./reactbits/card-3d";
+import ScrollReveal from "./reactbits/scroll-reveal";
 
 interface TestimonialsProps {
   name: string;
@@ -41,8 +43,8 @@ const reviews: TestimonialsProps[] = [
 
 function ReviewCard(client: TestimonialsProps) {
   return (
-    <>
-      <Card className="w-70 h-full">
+    <Card3D className="w-70 h-full" intensity={0.2} glowIntensity={0.1}>
+      <Card className="w-70 h-full bg-background/80 backdrop-blur-sm border border-border/50">
         <CardHeader>
           <div className="flex items-center space-x-4">
             <Avatar>
@@ -67,13 +69,13 @@ function ReviewCard(client: TestimonialsProps) {
           <p className="text-xs text-muted-foreground">{client.text}</p>
         </CardContent>
       </Card>
-    </>
+    </Card3D>
   );
 }
 
 export default function Testimonials() {
   return (
-    <>
+    <ScrollReveal direction="up" distance={30}>
       <HeadSection
         title="Testimonials"
         highlight="Some Testimonials from Happy Client."
@@ -88,6 +90,6 @@ export default function Testimonials() {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-background"></div>
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-background"></div>
       </div>
-    </>
+    </ScrollReveal>
   );
 }

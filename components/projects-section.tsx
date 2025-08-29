@@ -15,6 +15,8 @@ import { Button } from "./ui/button";
 import { ShineBorder } from "./magicui/shine-border";
 import Link from "next/link";
 import HeadSection from "./head-section";
+import BounceCard from "./reactbits/bounce-card";
+import HoverCard from "./reactbits/hover-card";
 
 interface ProjectType {
   name: string;
@@ -73,9 +75,11 @@ function DetailProject({
             <Image
               src={project.image}
               alt={project.name}
-              width={1000}
-              height={1000}
+              width={600}
+              height={338}
               className="rounded-lg aspect-[16/9] object-cover border border-border"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="flex flex-col gap-2 mt-4">
               <h4 className="font-semibold">Description</h4>
@@ -124,29 +128,40 @@ export default function ProjectSection() {
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
         {Projects.map((project, i) => (
-          <div
-            className="col-span-1 group p-2 rounded-lg bg-background shadow-md relative overflow-hidden cursor-zoom-in"
+          <BounceCard
             key={i}
+            className="col-span-1"
+            delay={i * 0.1}
+            bounceScale={1.03}
           >
-            <ShineBorder shineColor={["#008080", "#FE8FB5", "#FFBE7B"]} />
-            <DetailProject project={project}>
-              <div className="w-full h-full relative">
-                <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/70 text-slate-300 transition-opacity duration-300 group-hover:opacity-100 opacity-0 rounded-lg flex flex-col items-center justify-center gap-1">
-                  <span>
-                    <Eye className="h-6 w-6" />
-                  </span>
-                  <span className="text-xs ">PROJECT DETAIL</span>
+            <HoverCard
+              className="group p-2 rounded-lg bg-background shadow-md relative overflow-hidden cursor-zoom-in"
+              rotateX={5}
+              rotateY={5}
+              translateY={-8}
+            >
+              <ShineBorder shineColor={["#008080", "#FE8FB5", "#FFBE7B"]} />
+              <DetailProject project={project}>
+                <div className="w-full h-full relative">
+                  <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/70 text-slate-300 transition-opacity duration-300 group-hover:opacity-100 opacity-0 rounded-lg flex flex-col items-center justify-center gap-1">
+                    <span>
+                      <Eye className="h-6 w-6" />
+                    </span>
+                    <span className="text-xs ">PROJECT DETAIL</span>
+                  </div>
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={400}
+                    height={225}
+                    className="rounded-lg aspect-[16/9] object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  width={1000}
-                  height={1000}
-                  className="rounded-lg aspect-[16/9] object-cover"
-                />
-              </div>
-            </DetailProject>
-          </div>
+              </DetailProject>
+            </HoverCard>
+          </BounceCard>
         ))}
       </div>
       <div className="w-full  flex justify-center items-center mt-6">
