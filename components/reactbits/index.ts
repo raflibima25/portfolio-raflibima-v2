@@ -22,3 +22,6 @@ export { default as PixelTransition } from './pixel-transition';
 // Scroll Animations
 export { default as ScrollReveal } from './scroll-reveal';
 export { default as StaggerContainer } from './stagger-container';
+export { default as SmoothScroll } from './smooth-scroll';
+export { default as ScrollIndicator } from './scroll-indicator';
+export { default as ActiveSectionDetector, useActiveSection } from './active-section-detector';

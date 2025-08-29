@@ -1,4 +1,5 @@
 import NavbarMenu from "@/components/navbar-menu";
+import ScrollIndicator from "@/components/reactbits/scroll-indicator";
 import React from "react";
 
 export default function MainLayout({
@@ -8,6 +9,7 @@ export default function MainLayout({
 }) {
   return (
     <div className="w-full h-full relative pb-20 md:pb-0 bg-background">
+      <ScrollIndicator />
       <NavbarMenu />
       <main className="p-4 md:p-10 xl:p-20 font-poppins text-sm tracking-wide container mx-auto">
         {children}

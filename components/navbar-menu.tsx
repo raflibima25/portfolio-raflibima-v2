@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import ThemeToggle from "./theme-toggle";
+import SmoothScroll from "./reactbits/smooth-scroll";
 
 interface MenuItemType {
   title: string;
@@ -64,6 +65,8 @@ export function HoverTitle({
 
 export default function NavbarMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  
   return (
     <div
       className={cn(
@@ -91,9 +94,13 @@ export default function NavbarMenu() {
           <div className="flex flex-col gap-5">
             {menuItems.map((item, i) => (
               <HoverTitle title={item.title} key={i}>
-                <div className="">
-                  <a href={item.href}>{item.icon}</a>
-                </div>
+                <SmoothScroll 
+                  href={item.href}
+                  onScrollStart={() => setIsScrolling(true)}
+                  onScrollEnd={() => setIsScrolling(false)}
+                >
+                  {item.icon}
+                </SmoothScroll>
               </HoverTitle>
             ))}
             <ThemeToggle />
