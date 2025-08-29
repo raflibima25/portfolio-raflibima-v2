@@ -65,7 +65,6 @@ export function HoverTitle({
 
 export default function NavbarMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const [isScrolling, setIsScrolling] = useState<boolean>(false);
   
   return (
     <div
@@ -96,8 +95,6 @@ export default function NavbarMenu() {
               <HoverTitle title={item.title} key={i}>
                 <SmoothScroll 
                   href={item.href}
-                  onScrollStart={() => setIsScrolling(true)}
-                  onScrollEnd={() => setIsScrolling(false)}
                 >
                   {item.icon}
                 </SmoothScroll>
