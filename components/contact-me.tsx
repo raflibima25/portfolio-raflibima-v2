@@ -1,64 +1,117 @@
 "use client";
 
-import AnimatedButton from "./reactbits/animated-button";
-import MagneticButton from "./reactbits/magnetic-button";
+import { useState } from "react";
 import ScrollReveal from "./reactbits/scroll-reveal";
 import FadeInText from "./reactbits/fade-in-text";
-import AnimatedGradient from "./reactbits/animated-gradient";
 
 export default function ContactMe() {
-  const handlerClick = (type: string) => {
-    if (type === "email") {
-      window.open("mailto:raflibima1106@gmail.com");
-    } else if (type === "instagram") {
-      window.open("https://instagram.com/raflibp_");
-    } else if (type === "wa") {
-      window.open("https://wa.me/62895602523164/?text=Hallo");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      
+      if (response.ok) {
+        form.reset();
+        setIsSubmitted(true);
+      } else {
+        const data = await response.json();
+        console.error("Error response:", data);
+        alert("There was a problem sending your message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was a problem sending your message.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <AnimatedGradient className="p-8 rounded-xl">
-      <ScrollReveal direction="up" className="space-y-8">
-        <FadeInText className="text-xl lg:text-3xl font-light text-foreground/70 max-w-2xl w-full" delay={0.2}>
-          Contact me in one of the ways below to discuss my work, explore
-          projects, or book my services
-        </FadeInText>
-        <div className="flex items-center flex-wrap gap-3">
-          <MagneticButton className="relative bg-blue-800">
-            <AnimatedButton
-              variant="shine"
-              onClick={() => handlerClick("email")}
-              className="px-4 py-2 text-sm font-light text-white bg-primary rounded-md hover:bg-primary/90"
-              glowColor="rgba(59, 130, 246, 0.4)"
-            >
-              Email
-            </AnimatedButton>
-          </MagneticButton>
-          
-          <MagneticButton className="relative">
-            <AnimatedButton
-              variant="glow"
-              onClick={() => handlerClick("instagram")}
-              className="px-4 py-2 text-sm bg-gradient-to-br from-purple-600 to-pink-600 text-white font-light rounded-md border border-transparent"
-              glowColor="rgba(168, 85, 247, 0.4)"
-            >
-              Instagram
-            </AnimatedButton>
-          </MagneticButton>
-          
-          <MagneticButton className="relative">
-            <AnimatedButton
-              variant="bounce"
-              onClick={() => handlerClick("wa")}
-              className="px-4 py-2 text-sm bg-green-600 text-white font-light rounded-md hover:bg-green-700"
-              glowColor="rgba(34, 197, 94, 0.4)"
-            >
-              WhatsApp
-            </AnimatedButton>
-          </MagneticButton>
+    <section className="w-full py-12 border-t border-white/10">
+      <div className="max-w-5xl mx-auto">
+        <ScrollReveal direction="up">
+          <h2 className="text-lg text-primary mb-2 font-medium">Let&apos;s talk</h2>
+          <h3 className="text-4xl md:text-5xl font-medium text-foreground mb-6">
+            Contact
+          </h3>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ScrollReveal direction="left" delay={0.2}>
+            <div className="text-muted-foreground">
+              <FadeInText delay={0.3}>
+                <p className="mb-4">
+                  Have a question or a project in mind? Feel free to reach out.
+                </p>
+              </FadeInText>
+              <FadeInText delay={0.4}>
+                <div className="flex items-center gap-2">
+                  <span>Location:</span>
+                  <span className="text-foreground">Indonesia, Jakarta</span>
+                </div>
+              </FadeInText>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right" delay={0.3}>
+            <div>
+              {!isSubmitted ? (
+                <form
+                  action="https://formspree.io/f/xqadovoq" 
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-4"
+                >
+                  <input
+                    type="text"
+                    name="from_name"
+                    placeholder="Name"
+                    required
+                    className="px-4 py-3 bg-background/50 text-foreground border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  />
+                  <input
+                    type="email"
+                    name="reply_to"
+                    placeholder="Email"
+                    required
+                    className="px-4 py-3 bg-background/50 text-foreground border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={6}
+                    required
+                    className="px-4 py-3 bg-background/50 text-foreground border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-all"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="px-4 py-3 bg-primary/20 text-foreground rounded-lg border border-primary/30 hover:bg-primary/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending..." : "Submit"}
+                  </button>
+                </form>
+              ) : (
+                <div className="flex justify-center items-center mt-4 text-foreground text-lg">
+                  ✅ Thank you for your message!
+                </div>
+              )}
+            </div>
+          </ScrollReveal>
         </div>
-      </ScrollReveal>
-    </AnimatedGradient>
+      </div>
+    </section>
   );
 }
