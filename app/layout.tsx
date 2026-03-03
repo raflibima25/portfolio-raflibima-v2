@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Rafli Bima Pratandra",
     images: [
       {
-        url: "https://raflibima.vercel.app/images/og.png",
+        url: "https://raflibima.vercel.app/api/og",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
     images: [
       {
-        url: "https://raflibima.vercel.app/images/og.png",
+        url: "https://raflibima.vercel.app/api/og",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
