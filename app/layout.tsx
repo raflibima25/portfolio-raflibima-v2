@@ -24,16 +24,16 @@ export const metadata: Metadata = {
     template: "%s | Rafli Bima Pratandra",
   },
   description:
-    "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
+    "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
   openGraph: {
     title: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     description:
-      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
+      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
     url: "https://raflibima25.vercel.app",
     siteName: "Rafli Bima Pratandra",
     images: [
       {
-        url: "/images/og.png",
+        url: "https://raflibima25.vercel.app/images/og.png",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     description:
-      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
+      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
     images: [
       {
-        url: "/images/og.png",
+        url: "https://raflibima25.vercel.app/images/og.png",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
