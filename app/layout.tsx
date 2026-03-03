@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://raflibima25.vercel.app"),
+  metadataBase: new URL("https://raflibima.vercel.app"),
   title: {
     default: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     template: "%s | Rafli Bima Pratandra",
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     title: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     description:
       "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
-    url: "https://raflibima25.vercel.app",
+    url: "https://raflibima.vercel.app",
     siteName: "Rafli Bima Pratandra",
     images: [
       {
-        url: "https://raflibima25.vercel.app/images/og.png",
+        url: "https://raflibima.vercel.app/images/og.png",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in backend development with Golang, Node.js, and Next.js from Indonesia.",
     images: [
       {
-        url: "https://raflibima25.vercel.app/images/og.png",
+        url: "https://raflibima.vercel.app/images/og.png",
         width: 1200,
         height: 630,
         alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
