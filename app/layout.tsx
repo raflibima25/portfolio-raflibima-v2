@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import ReactLenis from "lenis/react";
@@ -11,27 +11,32 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://raflibima25.vercel.app"),
   title: {
-    default: "My Personal Website - IG: @raflibp_",
-    template: "%s | My Personal Website - IG: @raflibp_",
+    default: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
+    template: "%s | Rafli Bima Pratandra",
   },
   description:
-    "My personal website version 5, created with Next.js, Tailwind CSS, and Shadcn Ui.",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
+    "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
   openGraph: {
-    title: "My Personal Website - IG: @raflibp_",
+    title: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     description:
-      "My personal website version 5, created with Next.js, Tailwind CSS, and Shadcn Ui.",
+      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
     url: "https://raflibima25.vercel.app",
-    siteName: "My Personal Website - IG: @raflibp_",
+    siteName: "Rafli Bima Pratandra",
     images: [
       {
         url: "/images/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
       },
     ],
     locale: "en_US",
@@ -39,10 +44,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "My Personal Website - IG: @raflibp_",
+    title: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
     description:
-      "My personal website version 5, created with Next.js, Tailwind CSS, and Shadcn Ui.",
-    images: ["/images/og.png"],
+      "Portfolio of Rafli Bima Pratandra, a Software Engineer specializing in Golang, Node.js, and Next.js.",
+    images: [
+      {
+        url: "/images/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Rafli Bima Pratandra - Software Engineer | Backend Developer",
+      },
+    ],
   },
 };
 
