@@ -1,14 +1,13 @@
 "use client";
 
-import { motion, MotionProps } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { ReactNode, forwardRef } from "react";
 
-interface AnimatedButtonProps extends Omit<MotionProps, 'children'> {
+interface AnimatedButtonProps extends Omit<HTMLMotionProps<"button">, 'children'> {
   children: ReactNode;
   className?: string;
   variant?: "shine" | "ripple" | "glow" | "bounce" | "slide";
   glowColor?: string;
-  onClick?: () => void;
 }
 
 const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>(({
