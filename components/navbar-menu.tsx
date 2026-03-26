@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
-import { Contact, FolderOpen, HomeIcon, Menu, User, X } from "lucide-react";
+import { Code2, Contact, FolderOpen, HomeIcon, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Tooltip,
@@ -12,6 +12,8 @@ import {
 } from "./ui/tooltip";
 import ThemeToggle from "./theme-toggle";
 import SmoothScroll from "./reactbits/smooth-scroll";
+import MagneticButton from "./reactbits/magnetic-button";
+import { useActiveSection } from "./reactbits/active-section-detector";
 
 interface MenuItemType {
   title: string;
@@ -26,9 +28,9 @@ const menuItems: MenuItemType[] = [
     href: "#",
   },
   {
-    title: "About",
-    icon: <User />,
-    href: "#about",
+    title: "Skills",
+    icon: <Code2 />,
+    href: "#skills",
   },
   {
     title: "Projects",
@@ -41,6 +43,8 @@ const menuItems: MenuItemType[] = [
     href: "#contact",
   },
 ];
+
+const sectionIds = ["#skills", "#projects", "#contact"];
 
 export function HoverTitle({
   children,
@@ -65,7 +69,13 @@ export function HoverTitle({
 
 export default function NavbarMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  
+  const activeSection = useActiveSection(sectionIds);
+
+  const isActive = (href: string) => {
+    if (href === "#") return activeSection === "";
+    return activeSection === href;
+  };
+
   return (
     <div
       className={cn(
@@ -93,11 +103,16 @@ export default function NavbarMenu() {
           <div className="flex flex-col gap-5">
             {menuItems.map((item, i) => (
               <HoverTitle title={item.title} key={i}>
-                <SmoothScroll 
-                  href={item.href}
-                >
-                  {item.icon}
-                </SmoothScroll>
+                <MagneticButton strength={0.2} range={100}>
+                  <SmoothScroll href={item.href}>
+                    <div className="relative">
+                      {item.icon}
+                      {isActive(item.href) && (
+                        <span className="absolute -right-1.5 -top-1.5 h-2 w-2 rounded-full bg-white animate-pulse" />
+                      )}
+                    </div>
+                  </SmoothScroll>
+                </MagneticButton>
               </HoverTitle>
             ))}
             <ThemeToggle />

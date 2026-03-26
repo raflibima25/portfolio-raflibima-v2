@@ -5,6 +5,7 @@ import { Marquee } from "./magicui/marquee";
 import HeadSection from "./head-section";
 import Card3D from "./reactbits/card-3d";
 import ScrollReveal from "./reactbits/scroll-reveal";
+import { testimonials } from "@/lib/data";
 
 interface TestimonialsProps {
   name: string;
@@ -13,38 +14,13 @@ interface TestimonialsProps {
   text: string;
 }
 
-const reviews: TestimonialsProps[] = [
-  {
-    name: "Rizky Saputra",
-    username: "riz***dev",
-    text: "Nggak nyangka hasil websitenya bisa semulus ini. Desainnya rapi, loading cepet, dan cocok banget buat kebutuhan bisnis gue.",
-  },
-  {
-    name: "Melisa Anggraini",
-    username: "mel***art",
-    text: "Profesional banget! Semua detail kecil diperhatiin, hasil akhirnya lebih bagus dari bayangan gue. Recommended sih!",
-  },
-  {
-    name: "Dimas Arya",
-    username: "dim***pro",
-    text: "Kerjanya cepet, komunikatif, dan gampang diajak diskusi. Gue suka banget sama tampilan dashboard yang dibuat.",
-  },
-  {
-    name: "Clara Natalia",
-    username: "cla***ign",
-    text: "Website portfolio gue sekarang tampilannya elegan banget. Bikin makin pede buat nunjukin hasil kerja ke orang-orang.",
-  },
-  {
-    name: "Hendra Wijaya",
-    username: "hen***biz",
-    text: "Gue minta web company profile, hasilnya bener-bener profesional. Layout clean, warna pas, dan gampang diakses klien.",
-  },
-];
-
 function ReviewCard(client: TestimonialsProps) {
   return (
-    <Card3D className="w-70 h-full" intensity={0.2} glowIntensity={0.1}>
-      <Card className="w-70 h-full bg-background/80 backdrop-blur-sm border border-border/50">
+    <Card3D className="w-80 h-full" intensity={0.1} glowIntensity={0.1}>
+      <Card className="w-80 h-full bg-background/80 backdrop-blur-sm border border-border/50 border-l-2 border-l-hli relative overflow-hidden">
+        <span className="absolute top-2 right-4 text-6xl leading-none text-hli/20 font-serif select-none pointer-events-none">
+          &ldquo;
+        </span>
         <CardHeader>
           <div className="flex items-center space-x-4">
             <Avatar>
@@ -82,7 +58,7 @@ export default function Testimonials() {
       />
       <div className="w-full flex items-center justify-center overflow-hidden relative mt-5">
         <Marquee className="[--duration: 20s]">
-          {reviews.map((review, i) => (
+          {testimonials.map((review, i) => (
             <ReviewCard key={i} {...review} />
           ))}
         </Marquee>
