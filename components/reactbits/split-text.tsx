@@ -45,7 +45,7 @@ export default function SplitText({
             ...transition,
             delay: delay + i * 0.05
           }}
-          className="inline-block mr-1"
+          className="inline-block mr-3"
           style={{ willChange: 'transform, opacity' }}
         >
           {word}

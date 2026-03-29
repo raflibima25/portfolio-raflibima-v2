@@ -33,16 +33,17 @@ export default function ProjectSection() {
                 } gap-6 md:gap-10 items-center`}
               >
                 {/* Image side */}
-                <div className="w-full md:w-7/12 overflow-hidden rounded-lg group">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    width={800}
-                    height={450}
-                    className="aspect-[16/9] object-cover rounded-lg transition-transform duration-500 group-hover:scale-[1.05]"
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 58vw"
-                  />
+                <div className="w-full md:w-7/12 rounded-lg group overflow-hidden">
+                  <div className="relative w-full aspect-[16/9] bg-muted/30 rounded-lg overflow-hidden transition-transform duration-500 group-hover:scale-[1.03]">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-contain rounded-lg"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 58vw"
+                    />
+                  </div>
                 </div>
 
                 {/* Text side */}

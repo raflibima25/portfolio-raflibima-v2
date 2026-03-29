@@ -6,7 +6,7 @@ export const personalInfo = {
   tagline:
     "Building scalable backend systems and polished web experiences from Jakarta, Indonesia.",
   location: "Jakarta, Indonesia",
-  email: "raflibimapratandra@gmail.com",
+  email: "raflibima1106@gmail.com",
 };
 
 export const socialLinks = [
@@ -29,10 +29,10 @@ export const socialLinks = [
     handle: "@raflibp_",
   },
   {
-    href: "mailto:raflibimapratandra@gmail.com",
+    href: "mailto:raflibima1106@gmail.com",
     icon: Mail,
     label: "Email",
-    handle: "raflibimapratandra@gmail.com",
+    handle: "raflibima1106@gmail.com",
   },
 ];
 
@@ -110,7 +110,7 @@ export const projects: ProjectType[] = [
     name: "FinTrack (Personal Finance Management)",
     description:
       "A robust full-stack web application designed to help users track personal finances, monitor income and expenses, and visualize financial activity. It features a secure JWT and Google OAuth 2.0 authentication system, dynamic transaction management, a customizable category system, and an Excel export module for reporting.",
-    image: "/images/projects/dreamina-2026-03-26-8716-Create a professional portfolio showcase....jpeg",
+    image: "/images/projects/Gemini_Generated_Image_ocriewocriewocri.webp",
     url: "#",
     repo: "https://github.com/raflibima25/go-fintrack",
     tech: ["Golang", "Gin", "React.js", "Vue.js", "TailwindCSS", "PostgreSQL"],

@@ -24,13 +24,16 @@ export default function Typewriter({
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    setDisplayedText("");
+    setIsComplete(false);
     let i = 0;
     const timer = setTimeout(() => {
       const interval = setInterval(() => {
-        if (i < text.length) {
-          setDisplayedText((prev) => prev + text.charAt(i));
-          i++;
-        } else {
+        i++;
+        if (i <= text.length) {
+          setDisplayedText(text.slice(0, i));
+        }
+        if (i >= text.length) {
           clearInterval(interval);
           setIsComplete(true);
         }

@@ -54,7 +54,7 @@ export default function ProfileCard() {
             Hi dear, I am
           </FadeInText>
           <SplitText className="font-bold text-4xl md:text-5xl" delay={0.5}>
-            {personalInfo.name}.
+            {personalInfo.name + "."}
           </SplitText>
           <div>
             <Typewriter
