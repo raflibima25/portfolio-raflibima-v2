@@ -100,7 +100,7 @@ export const projects: ProjectType[] = [
   {
     name: "Web Portfolio",
     description: "Personal website showcasing my work and projects.",
-    image: "/images/projects/image.png",
+    image: "/images/projects/image_portfolio.webp",
     url: "https://raflibima25.github.io/portfolio",
     repo: "https://github.com/raflibima25/portfolio",
     tech: ["HTML", "TailwindCSS"],
@@ -110,7 +110,7 @@ export const projects: ProjectType[] = [
     name: "FinTrack (Personal Finance Management)",
     description:
       "A robust full-stack web application designed to help users track personal finances, monitor income and expenses, and visualize financial activity. It features a secure JWT and Google OAuth 2.0 authentication system, dynamic transaction management, a customizable category system, and an Excel export module for reporting.",
-    image: "/images/projects/Gemini_Generated_Image_ocriewocriewocri.webp",
+    image: "/images/projects/Gemini_Generated_Image_wdb124wdb124wdb1.webp",
     url: "#",
     repo: "https://github.com/raflibima25/go-fintrack",
     tech: ["Golang", "Gin", "React.js", "Vue.js", "TailwindCSS", "PostgreSQL"],
@@ -118,12 +118,13 @@ export const projects: ProjectType[] = [
   },
   {
     name: "Cami Photobooth",
-    description: "Photobooth application based on Website.",
+    description:
+      "A web-based photobooth application with a feminine aesthetic that lets users capture 4 vertical photo strips via webcam in one session. Features include AR face filters, color grading filters, custom frame editor with multiple color options, countdown timer, real-time preview, and direct photo download. Built with a pink-purple gradient design theme for a fun and memorable experience.",
     image:
-      "/images/projects/Cami-Photobooth-Abadikan-Momen-Indahmu-08-20-2025_01_58_PM.png",
+      "/images/projects/Gemini_Generated_Image_8k1mdc8k1mdc8k1m.webp",
     url: "#",
     repo: "https://github.com/raflibima25/cami-photobooth",
-    tech: ["HTML", "TailwindCSS", "Javascript"],
+    tech: ["HTML", "TailwindCSS", "Javascript", "WebRTC"],
     category: "Frontend",
   },
 ];
